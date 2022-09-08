@@ -46,6 +46,7 @@ export default defineComponent({
   data() {
     return {
       tempoEmSegundos: 0,
+      cronometro: 0,
     };
   },
   computed: {
@@ -59,13 +60,12 @@ export default defineComponent({
     iniciar() {
       // Começa a contagem
       // 1 segundo é igual a 1000 milesegundos
-      setInterval(() => {
+      this.cronometro = setInterval(() => {
         this.tempoEmSegundos += 1;
       }, 1000);
-      console.log("Iniciando a aplicação");
     },
     finalizar() {
-      console.log("Finalizando a aplicação");
+      clearInterval(this.cronometro);
     },
   },
 });
